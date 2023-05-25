@@ -53,9 +53,9 @@ class SignInViewModel(private val credentialsRepository: CredentialsRepository) 
         println(_signInState.value)
     }
 
-fun resetState() {
-    _signInState.value = SignInState.AppFirstLaunched
-}
+    fun resetState() {
+        _signInState.value = SignInState.AppFirstLaunched
+    }
 
     fun setUsername(username: String) {
         _usernameInput.value = username
