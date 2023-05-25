@@ -1,9 +1,8 @@
 package com.example.catapp
 
 import android.app.Application
-import android.content.Context
-import com.example.catapp.data.AppContainer
-import com.example.catapp.data.DefaultAppContainer
+import com.example.catapp.dependencyInjection.AppContainer
+import com.example.catapp.dependencyInjection.DefaultAppContainer
 
 
 

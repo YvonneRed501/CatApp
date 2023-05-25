@@ -1,14 +1,17 @@
-package com.example.catapp.data
+package com.example.catapp.dependencyInjection
 
 import android.content.Context
+import com.example.catapp.data.CredentialsDatabase
+import com.example.catapp.data.CredentialsRepositoryImplementation
+import com.example.catapp.data.DefaultDogRepository
+import com.example.catapp.data.DogRepository
 import com.example.catapp.domain.CredentialsRepository
-import com.example.catapp.model.Dog
 import com.example.catapp.network.DogApiService
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
-import retrofit2.http.GET
 
 interface AppContainer {
 
@@ -20,6 +23,7 @@ class DefaultAppContainer(private val context: Context) : AppContainer {
     private val BASE_URL =
         "https://dog.ceo"
 
+    @OptIn(ExperimentalSerializationApi::class)
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
         .baseUrl(BASE_URL)

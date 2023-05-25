@@ -6,9 +6,9 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.catapp.DogApplication
-import com.example.catapp.data.Credentials
 import com.example.catapp.domain.CredentialsRepository
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
@@ -29,7 +29,7 @@ class SignInViewModel(private val credentialsRepository: CredentialsRepository) 
     private val _usernameInput: MutableStateFlow<String> = MutableStateFlow("")
     val usernameInput = _usernameInput.asStateFlow()
     private val _passwordInput: MutableStateFlow<String> = MutableStateFlow("")
-    val passwordInput = _passwordInput.asStateFlow()
+    val passwordInput: StateFlow<String> = _passwordInput.asStateFlow()
 
 
     //check if credentials are valid, if yes sign in
